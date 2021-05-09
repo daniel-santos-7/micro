@@ -1,0 +1,13 @@
+* parâmetros para a simulação
+
+* W/L
+.param wpl1=98.76 wpl2=122.22
+
+* Ibias
+.param Ibias_val=600u
+
+* Vgs1
+.param Vgs1_val=0.742
+
+* Cl
+.param Cl_val=7p

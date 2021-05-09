@@ -1,0 +1,13 @@
+.include	./params.spice
+.include	../minimal_libs/pshort.lib
+.include	../minimal_libs/nshort.lib
+
+.subckt	cs_amp	vdd	vgnd	vb	in	out
+
+* label	drain	gate	source	bulk	model		width	length
+M1	out	in	vgnd	vgnd	nshort_model.0	W={wpl1*1u}	L=1u
+M2	out	vb	vdd	vdd	pshort_model.0	W={wpl2*1u}	L=1u
+M3	vb	vb	vdd	vdd	pshort_model.0	W={wpl2*1u}	L=1u
+
+.ends
+

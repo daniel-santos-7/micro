@@ -1,0 +1,8 @@
+transistor p:
+w = 122.22u
+l = 1u
+
+transistor n:
+w = 98.76
+l = 1u
+

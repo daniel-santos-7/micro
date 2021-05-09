@@ -1,0 +1,69 @@
+* NGSPICE file created from layout-cs-amp.ext - technology: sky130A
+
+.include        ../minimal_libs/pshort.lib
+.include        ../minimal_libs/nshort.lib
+
+.option	scale=1e-6
+
+.subckt cs_amp  vdd     vgnd    ibias      vin      vout
+
+* Top level circuit layout-cs-amp
+
+M1000 vout vin vgnd vgnd nshort_model.0 w=1.2345e+07u l=1e+06u
++  ad=3.9504e+13p pd=1.0516e+08u as=4.938e+13p ps=1.3145e+08u
+M1001 vgnd vin vout vgnd nshort_model.0 w=1.2345e+07u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+M1002 vout vin vgnd vgnd nshort_model.0 w=1.2345e+07u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+M1003 vdd ibias vout vdd pshort_model.0 w=1.222e+07u l=1e+06u
++  ad=1.17312e+14p pd=3.1248e+08u as=4.888e+13p ps=1.302e+08u
+M1004 vgnd vin vout vgnd nshort_model.0 w=1.2345e+07u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+M1005 vdd ibias ibias vdd pshort_model.0 w=1.222e+07u l=1e+06u
++  ad=0p pd=0u as=4.888e+13p ps=1.302e+08u
+M1006 vout ibias vdd vdd pshort_model.0 w=1.222e+07u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+M1007 ibias ibias vdd vdd pshort_model.0 w=1.222e+07u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+M1008 vgnd vin vout vgnd nshort_model.0 w=1.2345e+07u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+M1009 vout vin vgnd vgnd nshort_model.0 w=1.2345e+07u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+M1010 vdd ibias ibias vdd pshort_model.0 w=1.222e+07u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+M1011 vout ibias vdd vdd pshort_model.0 w=1.222e+07u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+M1012 vdd ibias vout vdd pshort_model.0 w=1.222e+07u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+M1013 ibias ibias vdd vdd pshort_model.0 w=1.222e+07u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+M1014 vdd ibias ibias vdd pshort_model.0 w=1.222e+07u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+M1015 vout ibias vdd vdd pshort_model.0 w=1.222e+07u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+M1016 ibias ibias vdd vdd pshort_model.0 w=1.222e+07u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+M1017 vgnd vin vout vgnd nshort_model.0 w=1.2345e+07u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+M1018 vdd ibias vout vdd pshort_model.0 w=1.222e+07u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+M1019 vout ibias vdd vdd pshort_model.0 w=1.222e+07u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+M1020 vout vin vgnd vgnd nshort_model.0 w=1.2345e+07u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+M1021 vdd ibias ibias vdd pshort_model.0 w=1.222e+07u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+M1022 ibias ibias vdd vdd pshort_model.0 w=1.222e+07u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+M1023 vdd ibias vout vdd pshort_model.0 w=1.222e+07u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+M1024 vout ibias vdd vdd pshort_model.0 w=1.222e+07u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+M1025 ibias ibias vdd vdd pshort_model.0 w=1.222e+07u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+M1026 vdd ibias vout vdd pshort_model.0 w=1.222e+07u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+M1027 vdd ibias ibias vdd pshort_model.0 w=1.222e+07u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+.ends
+

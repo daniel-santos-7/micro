@@ -1,0 +1,31 @@
+* simulação DC do amplificador
+
+.include	./params.spice
+*.include	./cs-amp.spice
+.include	./layout-cs-amp.spice
+
+* cs_amp
+Xamp    vdd     0       vb      in      out     cs_amp
+
+* label	(+)	(-)	value
+Vdd	vdd	0	1.8
+Vin	in	0	1.8
+Ibias	vb	0	{Ibias_val}
+Cl	out	0	{Cl_val}
+
+* cmd 	src	start	stop	step
+.dc	Vin	0	1.8	0.01
+
+.end
+
+.control
+
+run
+
+set color0=white
+set color1=black
+plot out in title 'Vout x Vin' xlabel 'Vin' ylabel 'Vout'
+
+meas dc commom find out when out=in
+
+.endc

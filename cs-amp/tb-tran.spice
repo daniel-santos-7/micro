@@ -1,0 +1,29 @@
+* simulação transiente do amplificador
+
+.include	./params.spice
+.include	./cs-amp.spice
+
+Xamp    vdd     0       vb      in      out     cs_amp
+
+* label	(+)	(-)	value
+Vdd	vdd	0	1.8
+Vin	in	0	sin({Vgs1_val} 10m 10k)
+Ibias	vb	0	{Ibias_val}
+Cl	out	0	{Cl_val}
+
+* cmd 	step	stop
+.tran	1u	2m
+
+.end
+
+* controle da simulação
+.control
+
+destroy all
+run
+
+set color0=white
+set color1=black
+plot out in title 'Vout x Vin'
+
+.endc
