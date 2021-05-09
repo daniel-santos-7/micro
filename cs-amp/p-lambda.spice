@@ -1,0 +1,38 @@
+* fator lambda para o transistor p-mos
+
+.include	../minimal_libs/pshort.lib
+
+* label	drain	gate	source	bulk	model		width	length
+M1	vd	vg	0	0	pshort_model.0	W=100u	L=1u
+
+Vdd	vd	0	-1.8
+Vgg	vg	0	-1.4
+
+.dc	Vdd 0 -1.8 -0.01	
+
+.save @M1[id] @M1[gds] vd
+
+.end
+
+.control
+
+destroy all
+run
+
+let id = @M1[id]
+let gds = @M1[gds]
+
+set color0=white
+set color1=black
+
+plot id xlabel 'Vgs' ylabel 'Id' title 'Id x Vgs'
+plot gds xlabel 'Vgs' ylabel 'gds' title 'gds x Vgs'
+
+meas dc id_f find id at=-1.8
+meas dc gds_f find gds at=-1.8
+
+let lambda = gds_f/id_f
+print lambda
+
+.endc
+

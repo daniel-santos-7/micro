@@ -1,0 +1,33 @@
+* simulação AC do amplificador
+
+.include	./params.spice
+*.include	./cs-amp.spice
+.include	./layout-cs-amp.spice
+
+* cs_amp
+Xamp    vdd     0       vb      in      out     cs_amp
+
+* label	(+)	(-)	value
+Vdd	vdd	0	1.8
+Vin	in	0	{Vgs1_val}	ac	1
+Ibias	vb	0	{Ibias_val}
+Cl	out	0	{Cl_val}
+
+* cmd 	step	stop
+.ac	dec	200	1k	110Meg
+
+.end
+
+.control
+
+destroy all
+run
+
+let gain=db(-out/in)
+
+set color0=white
+set color1=black
+
+plot gain title 'Vout x Vin' xlabel 'Frequency' ylabel 'Gain'
+
+.endc
