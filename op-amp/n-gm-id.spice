@@ -1,0 +1,32 @@
+* gm/id nshort *
+
+.include ../minimal_libs/nshort.lib
+
+.param W=1u L=1u
+
+*label	drain	gate	source	bulk	model		width	length
+M1	vd	vg	0	0	nshort_model.0	W={W}	L={L}
+
+Vdd	vd	0	1.8
+Vgg	vg	0	0.4
+
+.control
+
+destroy all
+
+save @M1[vgs] @M1[id] @M1[gm]
+
+dc vgg 0 1.8 0.001
+
+let vgs = @M1[vgs]
+let gm = @M1[gm]
+let id = @M1[id]
+
+set color0=white
+set color1=black
+
+plot id vs gm/id ylabel 'Id/(W/L)' xlabel 'gm/Id' title 'Id/(W/L) x gm/Id'
+
+.endc
+
+.end	
