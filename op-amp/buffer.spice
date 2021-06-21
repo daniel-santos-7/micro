@@ -1,0 +1,25 @@
+* op amp
+
+.include ../minimal_libs/pshort.lib
+
+* label	drain	gate	source	bulk	model		width	length
+M1	0   	in	out	out	pshort_model.0	W=1.57u	L=1u
+M2	out	ibias	vdd	vdd	pshort_model.0	W=1.57u	L=1u
+M3	ibias	ibias	vdd	vdd	pshort_model.0	W=1.57u	L=1u
+
+Ibias	ibias	0	-10u
+
+Vs	in 	0	0	sin(0 100m 1k)
+
+Vdd	vdd	0	1.8
+
+.end
+
+.control
+tran 5u 10m
+
+*dc Vs -1 1 0.01
+
+plot out in
+
+.endc

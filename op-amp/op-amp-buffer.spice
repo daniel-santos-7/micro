@@ -1,6 +1,6 @@
 * op amp *
 
-.include ./params.spice
+.include ./params-buffer.spice
 .include ../minimal_libs/nshort.lib
 .include ../minimal_libs/pshort.lib
 
@@ -16,9 +16,12 @@ M4	4	3	vss	vss	nshort_model.0	W={w4}	L=1u
 M5	ibb	ibb	vdd	vdd	pshort_model.0	W={w5}	L=1u
 M6	6	ibb	vdd	vdd	pshort_model.0	W={w6}	L=1u
 
-M7	out	4	vss	vss	nshort_model.0	W={w7}	L=1u
-M8	out	ibb	vdd	vdd	pshort_model.0	W={w8}	L=1u
+M7	7	4	vss	vss	nshort_model.0	W={w7}	L=1u
+M8	7	ibb	vdd	vdd	pshort_model.0	W={w8}	L=1u
 
-Cc	out	4	{cc_val}
+M9	vss	7	out	vdd	pshort_model.0	W={w9}	L=1u
+M10	out	ibb	vdd	vdd	pshort_model.0	W={w10}	L=1u
+
+Cc	7	4	{cc_val}
 
 .ends

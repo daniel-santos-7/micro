@@ -1,0 +1,27 @@
+* op amp tests *
+
+.include ./params.spice
+.include ./op-amp.spice
+
+Xamp	in1	in2	vdd	vss	ibb	out	op_amp
+
+Cl	out	0	{cl_val}
+
+Vs1 	in1 	0 	DC 0	AC 1
+Vs2	in2	0	DC 0	AC 1
+
+Vdd 	vdd 	0 	1.8
+Vss 	vss 	0 	0
+Ibias	ibb	0	{ibias_val}
+
+.control
+
+run
+
+set color0=white
+set color1=black
+
+ac dec 100 10 5Meg
+print db(out/in1)
+
+.endc

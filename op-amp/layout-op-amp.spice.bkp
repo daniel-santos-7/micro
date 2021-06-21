@@ -1,0 +1,73 @@
+* NGSPICE file created from layout-op-amp.ext - technology: sky130A
+
+.include ./params.spice
+.include ../minimal_libs/nshort.lib
+.include ../minimal_libs/pshort.lib
+
+* Top level circuit layout-op-amp
+
+.subckt	op_amp	in1	in2	vdd	vss	ibb
+
+M1000 vdd ibb vdd vdd pshort w=7.06e+06u l=1e+06u
++  ad=2.8232e+13p pd=1.4916e+08u as=0p ps=0u
+M1001 vdd cc1 vss vss nshort w=4.48e+06u l=1e+06u
++  ad=7.432e+12p pd=3.956e+07u as=4.36e+12p ps=2.5e+07u
+M1002 vdd ibb vdd vdd pshort w=7.06e+06u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+M1003 vdd ibb vdd vdd pshort w=7.06e+06u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+M1004 vdd ibb a_192_12# vdd pshort w=7.05e+06u l=1e+06u
++  ad=0p pd=0u as=5.644e+12p ps=3.062e+07u
+M1005 vdd ibb vdd vdd pshort w=7.06e+06u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+M1006 vss cc1 cc1 vss nshort w=970000u l=1e+06u
++  ad=0p pd=0u as=3.88e+11p ps=2.74e+06u
+M1007 vdd ibb a_1550_1182# vdd pshort w=7.06e+06u l=1e+06u
++  ad=0p pd=0u as=2.824e+12p ps=1.492e+07u
+M1008 vdd ibb vdd vdd pshort w=7.06e+06u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+M1009 vdd ibb ibb vdd pshort w=7.05e+06u l=1e+06u
++  ad=0p pd=0u as=2.82e+12p ps=1.49e+07u
+M1010 vdd ibb vdd vdd pshort w=7.06e+06u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+M1011 vss cc1 vdd vss nshort w=4.48e+06u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+M1012 a_192_12# in2 a_712_n442# vdd pshort w=3.53e+06u l=1e+06u
++  ad=0p pd=0u as=1.412e+12p ps=7.86e+06u
+M1013 a_3506_n70# cc1 vss vss nshort w=4.48e+06u l=1e+06u
++  ad=1.792e+12p pd=9.76e+06u as=0p ps=0u
+M1014 vss cc1 a_712_n442# vss nshort w=970000u l=1e+06u
++  ad=0p pd=0u as=3.88e+11p ps=2.74e+06u
+M1015 vdd ibb vdd vdd pshort w=7.06e+06u l=1e+06u
++  ad=0p pd=0u as=0p ps=0u
+M1016 vss cc1 a_2386_n70# vss nshort w=4.48e+06u l=1e+06u
++  ad=0p pd=0u as=1.792e+12p ps=9.76e+06u
+M1017 a_4070_1182# ibb vdd vdd pshort w=7.06e+06u l=1e+06u
++  ad=2.824e+12p pd=1.492e+07u as=0p ps=0u
+M1018 a_192_12# in1 cc1 vdd pshort w=3.53e+06u l=1e+06u
++  ad=0p pd=0u as=1.412e+12p ps=7.86e+06u
+C0 ibb vdd 1.93fF
+C1 ibb in2 0.02fF
+C2 cc1 in1 0.09fF
+C3 cc1 vdd 0.00fF
+C4 cc1 a_192_12# 0.10fF
+C5 cc1 in2 0.12fF
+C6 a_192_12# vdd 0.50fF
+C7 a_712_n442# cc1 0.04fF
+C8 a_192_12# in2 0.12fF
+C9 a_712_n442# vdd 0.00fF
+C10 a_712_n442# a_192_12# 0.11fF
+C11 cc1 ibb 0.08fF
+C12 in1 ibb 0.02fF
+C13 a_712_n442# vss 0.20fF
+C14 cc1 vss 4.37fF
+C15 in2 vss 0.57fF
+C16 in1 vss 0.09fF
+C17 a_192_12# vss 0.66fF
+C18 ibb vss 5.71fF
+C19 vdd vss 26.61fF
+
+Cc cc1 cc2 {cc_val}
+
+.ends
+

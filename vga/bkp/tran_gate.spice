@@ -1,0 +1,31 @@
+
+
+.include	../minimal_libs/pshort.lib
+.include	../minimal_libs/nshort.lib
+
+*lbl	drain	gate	source	bulk	model		with	length
+M1	b	nctrl	a	vss	nshort_model.0	W=10u	L=0.15u
+M2	a	ctrl	b	vdd	pshort_model.0	W=30u	L=0.15u
+M3	nctrl	ctrl	vdd	vdd	pshort_model.0	W=3u	L=0.15u
+M4	nctrl	ctrl	vss	vss	nshort_model.0	W=1u	L=0.15u
+
+Vdd	vdd	0	 1.8
+Vss	vss	0	-1.8
+Vb	b	0	 1.8
+
+Vctrl	ctrl	0	0	pulse(0 1.8 0 0 0 10m 20m)
+
+R1	a	b	1k
+R2	a	0	1k
+
+.end
+
+.control
+
+run
+
+tran 0.1m 100m
+
+plot abs(b/i(Vb))
+
+.endc

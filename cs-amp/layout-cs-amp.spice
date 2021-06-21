@@ -7,11 +7,11 @@
 
 .subckt cs_amp  vdd     vgnd    ibias      vin      vout
 
-<<<<<<< HEAD
-=======
+*<<<<<<< HEAD
+*=======
 * Top level circuit layout-cs-amp
 
->>>>>>> ac2bcfa50df7b9e44ba387f0377c92b7523c1c45
+*>>>>>>> ac2bcfa50df7b9e44ba387f0377c92b7523c1c45
 M1000 vout vin vgnd vgnd nshort_model.0 w=1.2345e+07u l=1e+06u
 +  ad=3.9504e+13p pd=1.0516e+08u as=4.938e+13p ps=1.3145e+08u
 M1001 vgnd vin vout vgnd nshort_model.0 w=1.2345e+07u l=1e+06u

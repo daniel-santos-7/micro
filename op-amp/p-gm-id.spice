@@ -12,20 +12,24 @@ Vgg	vs	vg	0.4
 
 .control
 
-destroy all
+*destroy all
 
-save @M1[vgs] @M1[id] @M1[gm]
+save @M1[vth] @M1[vgs] @M1[id] @M1[gm]
 
 dc vgg 0 1.8 0.001
 
+let vth = @M1[vth]
 let vgs = @M1[vgs]
 let gm = @M1[gm]
 let id = @M1[id]
+
 
 set color0=white
 set color1=black
 
 plot id vs gm/id ylabel 'Id/(W/L)' xlabel 'gm/Id' title 'Id/(W/L) x gm/Id'
+
+plot gm/id vs vgs-vth ylabel 'gm/Id' xlabel 'Vov' title 'Id/(W/L) x Vov'
 
 .endc
 

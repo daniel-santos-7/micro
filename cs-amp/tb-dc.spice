@@ -1,8 +1,8 @@
 * simulação DC do amplificador
 
 .include	./params.spice
-*.include	./cs-amp.spice
-.include	./layout-cs-amp.spice
+.include	./cs-amp.spice
+*.include	./layout-cs-amp.spice
 
 * cs_amp
 Xamp    vdd     0       vb      in      out     cs_amp

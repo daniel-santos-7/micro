@@ -1,0 +1,14 @@
+* Parâmetros para a simulação *
+
+* W/L
+.param w1=4.94e-6 w2=4.94e-6 
+.param w3=1.36e-6 w4=1.36e-6 
+.param w5=9.88e-6 w6=9.87e-6 
+.param w7=1.36e-5 w8=4.94e-5 
+.param w9=9.88e-6 w10=9.88e-6
+
+* Capacitâncias *
+.param cl_val=7e-12 cc_val=1e-12
+
+* Corrente de polarização *
+.param ibias_val=18e-6

@@ -1,0 +1,47 @@
+* op amp tests *
+
+.include ./params.spice
+.include ./op-amp.spice
+*.include ./layout-op-amp.spice
+
+Xamp	in1	in2	vdd	vss	ibb	out	op_amp
+
+Cl	out	0	{cl_val}
+
+Vs1 	in1 	0 	DC 0
+Vs2	in2	0	DC 0	AC 1	sin(0 20m 2k)
+
+Vdd 	vdd 	0 	1.8
+Vss 	vss 	0 	0
+Ibias	ibb	0	{ibias_val}
+
+.control
+
+set color0=white
+set color1=black
+
+dc Vs2 -1 1 0.001
+plot out in1 in2
+plot deriv(out)
+
+meas DC gainc find out when in2=0
+
+set units=degree
+ac dec 100 10 5Meg
+
+let gain=db(out/in2)
+let phase=ph(out)
+
+plot gain
+plot phase
+
+let gainatfc=vecmax(gain)-3
+meas AC fu find frequency when gain=0
+meas AC pu find phase at=fu
+meas AC fc find frequency when gain=gainatfc
+
+tran 1u 2m
+plot in1 in2 out
+plot deriv(out)
+
+.endc
